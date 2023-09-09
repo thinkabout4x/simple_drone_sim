@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  >
+
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+    </material>
+    <material name="white">
+        <color rgba="0.9 0.9 0.9 1.0"/>
+    </material>
+    <material name="red">
+        <color rgba="1.0 0 0 1.0"/>
+    </material>
+
+    <link name="base_link">
+       <visual>
+		 <origin xyz="0 0 0" rpy="0 0 0" />
+         <geometry>
+           <box size="0.4 0.2 0.04"/>
+         </geometry>
+         <material name="gray"/>
+       </visual>
+     </link>
+
+     <link name="FL">
+       <visual>
+		 <origin xyz="0 0 0.04" rpy="${pi/2} 0 0" />
+         <geometry>
+            <cylinder length="0.26" radius="0.015"/>
+         </geometry>
+         <material name="white"/>
+       </visual>
+     </link>
+     <link name="FR">
+       <visual>
+		 <origin xyz="0 0 0.04" rpy="${pi/2} 0 0" />
+         <geometry>
+            <cylinder length="0.26" radius="0.015"/>
+         </geometry>
+         <material name="red"/>
+       </visual>
+     </link>
+     <link name="BL">
+       <visual>
+		 <origin xyz="0 0 0.04" rpy="${pi/2} 0 0" />
+         <geometry>
+            <cylinder length="0.26" radius="0.015"/>
+         </geometry>
+         <material name="red"/>
+       </visual>
+     </link>
+     <link name="BR">
+       <visual>
+		 <origin xyz="0 0 0.04" rpy="${pi/2} 0 0" />
+         <geometry>
+            <cylinder length="0.26" radius="0.015"/>
+         </geometry>
+         <material name="white"/>
+       </visual>
+     </link>
+	 
+     <joint name="base_to_FL" type="continuous">
+       <parent link="base_link"/>
+       <child link="FL"/>
+       <origin xyz="0.2 0.15 0" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+     </joint>
+     <joint name="base_to_FR" type="continuous">
+       <parent link="base_link"/>
+       <child link="FR"/>
+       <origin xyz="0.2 -0.15 0" rpy="0 0 0" />
+       <axis xyz="0 0 -1"/>
+     </joint>
+     <joint name="base_to_BL" type="continuous">
+       <parent link="base_link"/>
+       <child link="BL"/>
+       <origin xyz="-0.2 0.15 0" rpy="0 0 0" />
+       <axis xyz="0 0 -1"/>
+     </joint>
+     <joint name="base_to_BR" type="continuous">
+       <parent link="base_link"/>
+       <child link="BR"/>
+       <origin xyz="-0.2 -0.15 0" rpy="0 0 0" />
+       <axis xyz="0 0 1"/>
+     </joint>
+</robot>
